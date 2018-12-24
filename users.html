@@ -1,0 +1,349 @@
+<!doctype html>
+<!-- 
+* Smart Timesheet: Time and Attendance Management System
+* Email: official.smarttimesheet@gmail.com
+* Version: 1.0
+* Author: Brian Luna
+* Copyright 2018 Brian Luna
+* Website: https://github.com/brianluna/smarttimesheet
+-->
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+    <meta name="viewport" content="width=device-width" />
+
+    <title>Smart Timesheet</title>
+    <link rel="stylesheet" type="text/css" href="assets/vendor/bootstrap/css/bootstrap.min.v4.1.3.css">
+    <link rel="stylesheet" type="text/css" href="assets/vendor/semantic-ui/semantic.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+            <script src="assets/js/html5shiv.js></script>
+            <script src="assets/js/respond.min.js"></script>
+        <![endif]-->
+
+    <!-- @yield('styles') -->
+    <link href="assets/vendor/datatables-plugins/dataTables.bootstrap.css" rel="stylesheet">
+    <link href="assets/vendor/datatables-responsive/dataTables.responsive.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="ui modal medium add">
+        <div class="header">Add New User</div>
+        <div class="content">
+            <form action="/" class="ui form add-user" method="post" accept-charset="utf-8">
+                <div class="field">
+                    <label>Employee</label>
+                    <select class="ui search dropdown getemail uppercase" name="name">
+                        <option value="">Select Employee</option>
+                        <option value="SEAN, QUINN" data-e="seanquinn@gmail.com">SEAN, QUINN</option>
+                        <option value="BROWN, MIA" data-e="brownmia@gmail.com">BROWN, MIA</option>
+                    </select>
+                </div>
+                <div class="field">
+                    <label>Email</label>
+                    <input type="text" name="email" class="readonly lowercase" value="" readonly>
+                </div>
+                <div class="grouped fields opt-radio">
+                    <label class="">Account Type :</label>
+                    <div class="field">
+                        <div class="ui radio checkbox">
+                            <input type="radio" name="acc_type" value="1">
+                            <label>EMPLOYEE</label>
+                        </div>
+                    </div>
+                    <div class="field" style="padding:0px!important">
+                        <div class="ui radio checkbox">
+                            <input type="radio" name="acc_type" value="2">
+                            <label>ADMIN</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="fields">
+                    <div class="sixteen wide field role">
+                        <label for="">Role</label>
+                        <select class="ui dropdown uppercase" name="role_id">
+                            <option value="">Select Role</option>
+                            <option value="EMPLOYEE">EMPLOYEE</option>
+                            <option value="MANAGER">MANAGER</option>
+                            <option value="SUPERVISOR">SUPERVISOR</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="fields">
+                    <div class="sixteen wide field">
+                        <label>Status</label>
+                        <select class="ui dropdown uppercase" name="status">
+                            <option value="">Select Status</option>
+                            <option value="1">Enabled</option>
+                            <option value="0">Disabled</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="two fields">
+                    <div class="field">
+                        <label for="">Password</label>
+                        <input type="password" name="password" required="" class="">
+                    </div>
+                    <div class="field">
+                        <label for="">Confirm Password</label>
+                        <input type="password" name="password_confirmation" required="" class="">
+                    </div>
+                </div>
+                <div class="actions">
+                    <button class="ui positive approve small button" type="submit" name="submit">
+                        <i class="ui checkmark icon"></i> Submit</button>
+                    <button class="ui grey cancel small button" type="button">
+                        <i class="ui times icon"></i> Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="wrapper">
+
+        <nav id="sidebar" class="active">
+            <div class="sidebar-header bg-lightblue">
+                <div class="logo">
+                    <a href="/" class="simple-text">
+                        <img src="assets/images/img/logo-small.png">
+                    </a>
+                </div>
+            </div>
+
+            <ul class="list-unstyled components">
+                <li class="">
+                    <a href="dashboard.html">
+                        <i class="ui icon sliders horizontal"></i>
+                        <p>Dashboard</p>
+                    </a>
+                </li>
+
+                <li class="">
+                    <a href="employees.html">
+                        <i class="ui icon users"></i>
+                        <p>Employees</p>
+                    </a>
+                </li>
+
+                <li class="">
+                    <a href="attendance.html">
+                        <i class="ui icon clock outline"></i>
+                        <p>Attendance</p>
+                    </a>
+                </li>
+
+                <li class="">
+                    <a href="schedules.html">
+                        <i class="ui icon calendar alternate outline"></i>
+                        <p>Schedules</p>
+                    </a>
+                </li>
+
+                <li class="">
+                    <a href="leaves.html">
+                        <i class="ui icon calendar plus outline"></i>
+                        <p>Leaves</p>
+                    </a>
+                </li>
+                <li class="">
+                    <a href="reports.html">
+                        <i class="ui icon chart bar outline"></i>
+                        <p>Reports</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="users.html">
+                        <i class="ui icon user circle outline"></i>
+                        <p>Users</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="settings.html">
+                        <i class="ui icon cog"></i>
+                        <p>Settings</p>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <div id="body" class="active">
+            <nav class="navbar navbar-expand-lg navbar-light bg-lightblue">
+                <div class="container-fluid">
+
+                    <button type="button" id="slidesidebar" class="ui icon button btn-light-outline">
+                        <i class="ui icon bars"></i> Menu
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="nav navbar-nav ml-auto navmenu">
+                            <li class="nav-item">
+                                <div class="ui pointing link dropdown item" tabindex="0">
+                                    <i class="ui icon th"></i> Quick Access
+                                    <i class="dropdown icon"></i>
+                                    <div class="menu" tabindex="-1">
+                                        <a href="employees-new.html" class="item">
+                                            <i class="ui icon user plus"></i> Add Employee</a>
+                                        <a href="clock.html" target="_blank" class="item">
+                                            <i class="ui icon clock outline"></i> Clock In/Out</a>
+                                        <div class="divider"></div>
+                                        <a href="fields/company.html" class="item">
+                                            <i class="ui icon university"></i> Company</a>
+                                        <a href="fields/department.html" class="item">
+                                            <i class="ui icon cubes"></i> Department</a>
+                                        <a href="fields/jobtitle.html" class="item">
+                                            <i class="ui icon pencil alternate"></i> Job Title</a>
+                                        <a href="fields/leavetype.html" class="item">
+                                            <i class="ui icon calendar alternate outline"></i> Leave Type</a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <div class="ui pointing link dropdown item" tabindex="0">
+                                    <i class="ui icon user outline"></i>Demo Manager
+                                    <i class="dropdown icon"></i>
+                                    <div class="menu" tabindex="-1">
+                                        <a href="update-user.html" class="item">
+                                            <i class="ui icon user"></i> Update User</a>
+                                        <a href="change-password.html" class="item">
+                                            <i class="ui icon lock"></i> Change Password</a>
+                                        <a href="personal/dashboard.html" target="_blank" class="item">
+                                            <i class="ui icon sign-in"></i> Switch to MyAccount</a>
+                                        <div class="divider"></div>
+                                        <a href="login.html" class="item">
+                                            <i class="ui icon power"></i> Logout</a>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="content">
+
+                <!-- @yield('content') -->
+                <div class="container-fluid">
+                    <div class="row">
+                        <h2 class="page-title">Users
+                            <a href="user/roles.html" class="ui blue button mini offsettop5 float-right">
+                                <i class="ui icon user"></i>Roles</a>
+                            <button class="ui positive button mini offsettop5 btn-add float-right">
+                                <i class="ui icon plus"></i>Add</button>
+                        </h2>
+                    </div>
+
+                    <div class="row">
+                        <div class="box box-success">
+                            <div class="box-body">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                            <thead>
+                                                <tr>
+                                                    <th>Name</th>
+                                                    <th>Email</th>
+                                                    <th>Role</th>
+                                                    <th>Type</th>
+                                                    <th>Status</th>
+                                                    <th>Actions</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr role="row" class="odd">
+                                                    <td class="sorting_1">BROWN, MIA</td>
+                                                    <td>brownmia@gmail.com</td>
+                                                    <td>EMPLOYEE</td>
+                                                    <td> Employee </td>
+                                                    <td>
+                                                        <span>
+                                                            Enabled
+                                                        </span>
+                                                    </td>
+                                                    <td>
+                                                        <a href="users/edit/18.html" class="ui blue icon mini basic button">
+                                                            <i class="ui icon edit"></i> Edit</a>
+                                                        <a href="" class="ui red icon mini basic button">
+                                                            <i class="ui icon trash"></i> Delete</a>
+                                                    </td>
+                                                </tr>
+                                                <tr role="row" class="even">
+                                                    <td class="sorting_1">QUINN, SEAN</td>
+                                                    <td>seanquinn@gmail.com</td>
+                                                    <td>MANAGER</td>
+                                                    <td> Admin </td>
+                                                    <td>
+                                                        <span>
+                                                            Enabled
+                                                        </span>
+                                                    </td>
+                                                    <td>
+                                                        <a href="users/edit/17.html" class="ui blue icon mini basic button">
+                                                            <i class="ui icon edit"></i> Edit</a>
+                                                        <a href="" class="ui red icon mini basic button">
+                                                            <i class="ui icon trash"></i> Delete</a>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/vendor/jquery/jquery-3.3.1.min.js"></script>
+    <script src="assets/vendor/bootstrap/js/bootstrap.min.v4.1.3.js"></script>
+    <script src="assets/vendor/semantic-ui/semantic.min.js"></script>
+    <script src="assets/js/bootstrap-notify.js"></script>
+    <script src="assets/js/script.js"></script>
+
+    <!-- @yield('scripts') -->
+    <script src="assets/vendor/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="assets/vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
+    <script src="assets/vendor/datatables-responsive/dataTables.responsive.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#dataTables-example').DataTable({
+                responsive: true,
+                pageLength: 15,
+                lengthChange: false,
+                searching: true,
+            });
+        });
+
+        $('.ui.dropdown.getemail').dropdown({
+            onChange: function (value, text, $selectedItem) {
+                $('select[name="name"] option').each(function () {
+                    if ($(this).val() == value) {
+                        var e = $(this).attr('data-e');
+                        var r = $(this).attr('data-ref');
+                        $('input[name="email"]').val(e);
+                        $('input[name="ref"]').val(r);
+                    };
+                });
+            }
+        });
+
+        $(document).ready(function() {
+            $.notify({
+                icon: 'ui icon check',
+                message: "HTML Preview only: adding, editing, deleting records is limited and for viewing purpose only."},
+                {type: 'success',timer: 400}
+            );
+        });
+    </script>
+</body>
+
+</html>
