@@ -1,11 +1,13 @@
 /*
-* Smart Timesheet: Time and Attendance Management System
+* Smart Timesheet Preview 
 * Email: official.smarttimesheet@gmail.com
-* Version: 1.0
+* Version: 3.0
+* License: The MIT License
 * Author: Brian Luna
 * Copyright 2018 Brian Luna
 * Website: https://github.com/brianluna/smarttimesheet
 */
+
 $(document).ready(function() {
     $('#slidesidebar').on('click', function() {
         $('#sidebar').toggleClass('active');
