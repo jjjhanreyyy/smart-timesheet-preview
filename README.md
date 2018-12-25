@@ -14,7 +14,7 @@ Write your feedback and send at our developer email official.smarttimesheet@gmai
 
 
 ## License 
-The Smart Timesheet Documentation is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+The Smart Timesheet Live Preview is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 
 Version 3.0
 
