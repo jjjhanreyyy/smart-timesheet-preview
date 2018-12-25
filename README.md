@@ -1,4 +1,4 @@
-## About Smart Timesheet
+## Smart Timesheet Live Preview
 
 Smart Timesheet: Time and Attendance Management System
 
