@@ -9,7 +9,8 @@ Smart Timesheet delivers the best Time and Attendance Management Software user e
 
 You can help us making this software better by suggesting new features or reporting a problem.
 
-Send Feedback
+### Send Feedback
+
 Write your feedback and send at our developer email official.smarttimesheet@gmail.com
 
 
