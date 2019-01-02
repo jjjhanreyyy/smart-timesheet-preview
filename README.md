@@ -4,8 +4,12 @@ Smart Timesheet: Time and Attendance Management System
 
 Smart Timesheet delivers the best Time and Attendance Management Software user experience, and functionality. Smart Timesheet is a user-friendly, intuitive system that provides smoothly integrated essential HR Time and Attendance functionality, Employee Management, Leaves Management, Scheduling, Time tracking, and Attendance solution and more.
 
+## Live Demo
+https://smarttimesheet.herokuapp.com/login
+Username: manager@example.com
+Password: demo12345
 
-## Help & Feedback
+### Help & Feedback
 
 You can help us making this software better by suggesting new features or reporting a problem.
 
@@ -14,7 +18,7 @@ You can help us making this software better by suggesting new features or report
 Write your feedback and send at our developer email official.smarttimesheet@gmail.com
 
 
-## License 
+### License 
 The Smart Timesheet Live Preview is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 
 Version 3.0
