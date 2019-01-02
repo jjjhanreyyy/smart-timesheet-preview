@@ -6,7 +6,9 @@ Smart Timesheet delivers the best Time and Attendance Management Software user e
 
 ## Live Demo
 https://smarttimesheet.herokuapp.com/login
+
 Username: manager@example.com
+
 Password: demo12345
 
 ### Help & Feedback
